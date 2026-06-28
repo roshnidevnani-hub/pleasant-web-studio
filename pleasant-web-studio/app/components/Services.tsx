@@ -1,65 +1,85 @@
-export default function Services() {
-  const services = [
-    {
-      title: "Website Development",
-      description:
-        "Fast, responsive and modern websites built using Next.js and React.",
-      icon: "💻",
-    },
-    {
-      title: "UI / UX Design",
-      description:
-        "Beautiful interfaces designed to improve user experience and conversions.",
-      icon: "🎨",
-    },
-    {
-      title: "SEO Optimization",
-      description:
-        "Improve your Google ranking with optimized and high-performance websites.",
-      icon: "📈",
-    },
-  ];
+import {
+  Monitor,
+  Palette,
+  Search,
+} from "lucide-react";
 
+const services = [
+  {
+    title: "Website Development",
+    description:
+      "Fast, responsive and scalable websites built with modern technologies.",
+    icon: Monitor,
+  },
+  {
+    title: "UI / UX Design",
+    description:
+      "Clean, beautiful interfaces that improve user engagement and conversions.",
+    icon: Palette,
+  },
+  {
+    title: "SEO Optimization",
+    description:
+      "Technical SEO that helps your website rank higher on Google.",
+    icon: Search,
+  },
+];
+
+export default function Services() {
   return (
     <section
       id="services"
-      className="bg-white py-24"
+      className="bg-white py-28"
     >
       <div className="mx-auto max-w-7xl px-6">
 
         <div className="text-center">
-          <h2 className="text-4xl font-bold">
-            Our Services
+
+          <span className="font-semibold text-blue-600">
+            OUR SERVICES
+          </span>
+
+          <h2 className="mt-4 text-5xl font-bold">
+            Digital solutions designed to
+            <span className="text-blue-600"> grow your business.</span>
           </h2>
 
-          <p className="mt-4 text-gray-600">
-            Everything you need to grow your business online.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+            We build premium websites focused on speed,
+            performance and user experience.
           </p>
+
         </div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-20 grid gap-8 md:grid-cols-3">
 
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-2xl border border-gray-200 p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-              <div className="mb-6 text-5xl">
-                {service.icon}
+          {services.map((service) => {
+            const Icon = service.icon;
+
+            return (
+              <div
+                key={service.title}
+                className="group rounded-3xl border border-gray-200 bg-white p-10 transition duration-300 hover:-translate-y-3 hover:shadow-2xl"
+              >
+                <div className="mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 transition group-hover:bg-blue-600">
+                  <Icon
+                    size={30}
+                    className="text-blue-600 group-hover:text-white"
+                  />
+                </div>
+
+                <h3 className="mb-4 text-2xl font-semibold">
+                  {service.title}
+                </h3>
+
+                <p className="leading-7 text-gray-600">
+                  {service.description}
+                </p>
               </div>
-
-              <h3 className="mb-4 text-2xl font-semibold">
-                {service.title}
-              </h3>
-
-              <p className="text-gray-600">
-                {service.description}
-              </p>
-            </div>
-          ))}
+            );
+          })}
 
         </div>
-
       </div>
     </section>
   );
